@@ -1,4 +1,6 @@
 import hashlib
+import random
+import string
 
 def get_sha1(text):
     hashed = hashlib.sha1(text)
@@ -10,7 +12,14 @@ def get_dict_value(text, d):
     for i in keys:
         if d[i] == text:
             return i
-ptext = 'c'
+
+def random_string():
+    length=10
+    letters = string.ascii_lowercase
+    result = ''.join(random.choice(letters)for i in range(length))
+    return result
+    
+ptext = random_string()
 text = ptext
 hashed = get_sha1(bytes(text,'utf-8'))
 hf = hashed[0:6]
